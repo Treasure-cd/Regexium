@@ -2,7 +2,6 @@
 import { ref, computed } from 'vue'
 import { regexSpecificDictionary } from '../../constants/dict'
 
-// Define the structure for a token
 interface RegexToken {
   text: string
   label: string | null
@@ -107,26 +106,35 @@ return localResult;
 </template>
 
 <style scoped>
-  label {
-    font-size: 12px;
-  }
+label {
+  font-size: 12px;
+  color: #aaa;
+  display: block;
+  margin-bottom: 4px;
+}
 
-  .container {
-    font-family: monospace;
-    white-space: pre-wrap;
-    word-break: break-all; 
-    height: 80px; 
-    border: 1px solid white; 
-    width: 100%;
-  }
-  .seperator {
-    background-color: gray;
-    width: 100%;
-    height: 1px;
-  }
-  .explanation-text {
-    padding: 8px 0;
-    font-size: 14px;
-    color: #cccccc;
-  }
+.container {
+  font-family: monospace;
+  width: 100%;
+  border: 1px solid #444;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.explanation-text {
+  padding: 6px 10px;
+  font-size: 13px;
+  color: #ccc;
+  min-height: 28px;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.separator {
+  background-color: #444;
+  width: 100%;
+  height: 1px;
+  flex-shrink: 0;
+}
 </style>

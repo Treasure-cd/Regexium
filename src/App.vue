@@ -127,143 +127,132 @@ const regexExplanation = computed(() => {
 </template>
 
 <style scoped>
-  .container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    min-height: 100vh;
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.content-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  min-height: calc(100vh - 55px);
+  margin-top: 55px;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  margin-right: 250px; /* matches sidebar width */
+}
+
+.input-div {
+  display: flex;
+  flex-direction: column;
+  width: min(90%, 900px);
+  min-width: 0;
+  padding: 40px 20px;
+  height: calc(100vh - 95px);
+  box-sizing: border-box;
+}
+
+label {
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.input-mirror-container {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.regex-input {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 15px;
+  padding: 0 20px;
+  height: 52px;
+  background-color: transparent;
+  border: 1px solid rgb(10, 49, 10);
+  color: inherit;
+  font-family: monospace;
+}
+
+.mirror-container {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  min-height: 150px;
+}
+
+.regex-textarea {
+  position: absolute;
+  inset: 0;
+  font-size: 15px;
+  font-family: monospace;
+  border: 1px solid rgb(10, 49, 10);
+  background-color: transparent;
+  z-index: 1;
+  resize: none;
+  line-height: 22px;
+  color: inherit;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.mirror {
+  position: absolute;
+  inset: 0;
+  padding: 8px;
+  z-index: 2;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  pointer-events: none;
+  color: transparent;
+  font-family: monospace;
+  font-size: 15px;
+  line-height: 22px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 900px) {
+  .main-content {
+    margin-right: 0;
   }
 
   .content-container {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    min-height: calc(100vh - 55px);
-    margin-top: 55px;
-  }
-
-  .main-content {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    margin-right: 200px;
+    flex-direction: column;
   }
 
   .input-div {
-    display: flex;
-    flex-direction: column;
-    max-width: 900px;
-    width: 90%; 
-    min-width: 300px; 
-    padding: 50px 20px;
-    height: calc(100vh - 105px);
-  }
-  
-  .regex-input {
-    font-size: 15px;
-    padding: 20px 30px;
-    height: 60px;
-    display: flex;
-    width: 94%;
-    background-color: transparent;
-    border: 1px solid rgb(10, 49, 10);
-    margin: 2px;
-    position: relative;
-    z-index: 1;
-  }
-
-  .regex-textarea {
-    position: absolute;
-    margin: 2px;
-    font-size: 15px;
-    border: 1px solid rgb(10, 49, 10);
-    background-color: transparent;
-    z-index: 1;
-    height: 100%;
-    width: 100%;
-    resize: none;
-    line-height: 22px;
-    color: inherit;
-  }
-
-  label {
-    font-size: 12px;
+    height: auto;
+    min-height: 60vh;
   }
 
   .mirror-container {
-    position: relative;
-    flex: 1;
-    width: 100%;
-    display: flex;
     min-height: 200px;
+    height: 40vh;
   }
+}
 
-
-  .input-mirror-container {
-    position: relative;
+@media (max-width: 480px) {
+  .input-div {
+    padding: 24px 12px;
     width: 100%;
-    margin: 2px 0 8px 0;
   }
 
-  .input-mirror {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 2;
-    height: 100%;
-    width: 100%;
-    padding: 20px 30px;
-    line-height: 22px; 
-  }
-
+  .regex-input,
+  .regex-textarea,
   .mirror {
-    position: absolute;
-    background-color: transparent;
-    margin-top: 2px;
-    margin-left: 2px;
-    padding: 3px;
-    z-index: 2;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    pointer-events: none;
-    color: transparent;
-    font-family: monospace;
-    font-size: 15px;
-    height: 100%;
-    width: 100%;
+    font-size: 13px;
   }
 
-  .explanation, .error {
-    margin-top: 20px;
+  .regex-input {
+    height: 44px;
+    padding: 0 12px;
   }
-
-  .error {
-    color: red;
-  }
-
-  @media (max-width: 900px) {
-    .main-content {
-      margin-right: 0;
-    }
-
-    .content-container {
-      flex-direction: column;
-    }
-  }
-  
-  @media (max-width: 600px) {
-    .input-div {
-      width: 95%;
-      padding: 30px 10px;
-    }
-
-    .regex-input, .regex-textarea, .mirror {
-      font-size: 14px;
-    }
-    
-    .regex-input {
-      padding: 10px 15px;
-      height: 40px; 
-    }
-  }
+}
 </style>
